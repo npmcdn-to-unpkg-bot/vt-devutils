@@ -36,7 +36,7 @@
 		'SHOP_MODULE_sMailLog'            => 'Pfad zur Log Datei',
 		'SHOP_MODULE_iMailLog'            => 'Anzahl der angezeigten Log-Einträge',
 
-		// logs controller
+		// logs files
 		'VTDU_LOGS_EXLOGRESTART'          => 'exception log restarted, old log file: ',
 		'VTDU_LOGS_EXLOGEMPTY'            => 'exception log empty. nothing to backup',
 		'VTDU_LOGS_SRVERRLOGRESTART'      => 'server error log backuped into ',

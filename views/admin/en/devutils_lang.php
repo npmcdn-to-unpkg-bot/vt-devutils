@@ -11,7 +11,7 @@
 
 		// debug settings
 		'SHOP_MODULE_GROUP_vtduDebug'     => '<style type="text/css">.groupExp a.rc b {font-size: medium; color: #ff3600; }.groupExp dt input.txt { width: 400px !important} .groupExp dl { display: block !important; } input.confinput {position: fixed; top: 20px; right: 70px; background: #008B2D; padding: 5px 20px; color: white; border: 1px solid black; cursor:pointer; font-size: 125%; } input.confinput:hover {outline: 3px solid #ff3600;}</style>Debug Options',
-		'SHOP_MODULE_bShowCl'             => 'print active controller in the console',
+		'SHOP_MODULE_bShowCl'             => 'print active files in the console',
 		'SHOP_MODULE_bShowTpl'            => 'print main active template in the console',
 		'SHOP_MODULE_bKeepBasket'         => 'keep the basket after placing order',
 
@@ -36,7 +36,7 @@
 		'SHOP_MODULE_sMailLog'            => 'path to the file',
 		'SHOP_MODULE_iMailLog'            => 'amount of displayed log entries',
 
-		// logs controller
+		// logs files
 		'VTDU_LOGS_EXLOGRESTART'          => 'exception log restarted, old log file: ',
 		'VTDU_LOGS_EXLOGEMPTY'            => 'exception log empty. nothing to backup',
 		'VTDU_LOGS_SRVERRLOGRESTART'      => 'server error log backuped into ',

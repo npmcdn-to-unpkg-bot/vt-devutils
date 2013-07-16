@@ -35,17 +35,18 @@
 			'module_main'   => 'vt-devutils/extend/module_main_vtdu',
 			'navigation'    => 'vt-devutils/extend/navigation_vtdu',
 
-
 			/* frontend */
 			'thankyou'      => 'vt-devutils/extend/thankyou_vtdu',
 		),
 		'files'       => array(
-			'vtdu_logs'       => 'vt-devutils/controller/vtdu_logs.php',
-			'vtdu_scratchpad' => 'vt-devutils/controller/vtdu_scratchpad.php',
+            'vtdu_events'     => 'vt-devutils/files/vtdu_events.php', // module events
 
-			'vtdu'            => 'vt-devutils/controller/vtdu.php', // dev utils self
-			'vtdu_fe'         => 'vt-devutils/controller/vtdu_fe.php', // frontend controller
-			'vtdu_be'         => 'vt-devutils/controller/vtdu_be.php', // backend controller
+			'vtdu_logs'       => 'vt-devutils/files/vtdu_logs.php',     // logs controller
+			'vtdu_scratchpad' => 'vt-devutils/files/vtdu_scratchpad.php',   // php scratchpad
+
+			'vtdu'            => 'vt-devutils/files/vtdu.php', // dev utils self
+			'vtdu_fe'         => 'vt-devutils/files/vtdu_fe.php', // frontend files
+			'vtdu_be'         => 'vt-devutils/files/vtdu_be.php', // backend files
 		),
 		'templates'   => array(
 			'navigation_vtdu.tpl' => 'vt-devutils/views/admin/navigation_vtdu.tpl',

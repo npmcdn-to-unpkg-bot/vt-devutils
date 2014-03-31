@@ -13,38 +13,36 @@
 	public function init()
 	{
 		parent::init();
+
 		$cfg = oxRegistry::getConfig();
+
 		$this->_sExLog     = ( $cfg->getConfigParam('bExLog'))     ? $cfg->getConfigParam('sShopDir') . 'log/EXCEPTION_LOG.txt' : false;
-
 		$this->_sSrvErrLog = ( $cfg->getConfigParam('bSrvErrLog')) ? $cfg->getConfigParam('sSrvErrLog') : false;
-		if(substr($this->_sSrvErrLog, 0,1) !== "/") $this->_sSrvErrLog = $cfg->getConfigParam('sShopDir') . $this->_sSrvErrLog; // relative path?
-
 		$this->_sSqlLog    = ( $cfg->getConfigParam('bSqlLog')   ) ? $cfg->getConfigParam('sSqlLog')    : false;
-
 		$this->_sMailsLog  = ( $cfg->getConfigParam('bMailLog')  ) ? $cfg->getConfigParam('sMailLog')   : false;
+
+        if(substr($this->_sSrvErrLog, 0,1) !== "/") $this->_sSrvErrLog = $cfg->getConfigParam('sShopDir') . $this->_sSrvErrLog; // relative path 4 apache error log?
 	}
 		public function render()
 		{
 			parent::render();
 			$cfg = oxRegistry::getConfig();
 
-
-
-			$this->_aViewData['ExLog']     = ($this->_sExLog) ? $this->getExceptionLog() : false;;
-			$this->_aViewData['SrvErrLog'] = $this->getErrorLog();
-			$this->_aViewData['SqlLog']    = false;
-			$this->_aViewData['MailLog']   = false;
+            $this->addTplParam('ExLog', ($this->_sExLog) ? $this->getExceptionLog() : false);
+			$this->addTplParam('SrvErrLog', $this->getErrorLog());
+			$this->addTplParam('SqlLog', false);
+			$this->addTplParam('MailLog', false);
 
 			//var_dump("<h2>".$this->_sExLogPath."</h2>");
 			//$this->getExceptionLog();
 			//echo "<hr/>";
 			//var_dump("<h2>".$this->_sErrorLog."</h2>");
-			//$this->_aViewData['ErrorLog'] = $this->getErrorLog();
+			//$this->addTplParam('ErrorLog'] = $this->getErrorLog();
 			//echo "<hr/>";
 			//var_dump("<h2>".$this->_sDbLog."</h2>");
 			//echo "<hr/>";
 			//var_dump("<h2>".$this->_sMailLog."</h2>");
-			//$this->_aViewData['ExceltionLog'] = "logs";
+			//$this->addTplParam('ExceltionLog'] = "logs";
 
 
 			return $this->_tpl;

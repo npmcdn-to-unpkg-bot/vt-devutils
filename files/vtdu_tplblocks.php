@@ -19,13 +19,16 @@ class vtdu_tplblocks extends oxAdminView
     {
         $ret = oxDb::getDb(oxDb::FETCH_MODE_ASSOC)->getAll("select * from oxtplblocks order by oxmodule asc");
 
-        foreach($ret AS $key => $value)
-        {
-            $ret[$key] = (object) array_change_key_case($value);
-        }
-        //var_dump($ret);
+        if(!count($ret)) return false;
 
-        return $ret;
+        $aBlocks = array();
+        foreach($ret AS $value)
+        {
+            $block = (object) array_change_key_case($value);
+            $aBlocks[$block->oxmodule][] = $block;
+        }
+
+        return $aBlocks;
     }
 
 }

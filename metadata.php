@@ -41,7 +41,8 @@
 		'files'       => array(
             'vtdu_events'     => 'vt-devutils/files/vtdu_events.php', // module events
 
-			'vtdu_logs'       => 'vt-devutils/files/vtdu_logs.php',     // logs controller
+            'vtdu_logs'       => 'vt-devutils/files/vtdu_logs.php',     // logs controller
+            'vtdu_tplblocks'  => 'vt-devutils/files/vtdu_tplblocks.php',     // template blocks controller
 			'vtdu_scratchpad' => 'vt-devutils/files/vtdu_scratchpad.php',   // php scratchpad
 
 			'vtdu'            => 'vt-devutils/files/vtdu.php', // dev utils self
@@ -54,7 +55,8 @@
 		'templates'   => array(
 			'navigation_vtdu.tpl' => 'vt-devutils/views/admin/navigation_vtdu.tpl',
 
-			'vtdu_logs.tpl'       => 'vt-devutils/views/admin/vtdu_logs.tpl',
+            'vtdu_logs.tpl'       => 'vt-devutils/views/admin/vtdu_logs.tpl',
+            'vtdu_tplblocks.tpl'  => 'vt-devutils/views/admin/vtdu_tplblocks.tpl',
 			'vtdu_scratchpad.tpl' => 'vt-devutils/views/admin/vtdu_scratchpad.tpl',
 
 			'vtdu_ajax.tpl'       => 'vt-devutils/views/vtdu_ajax.tpl',

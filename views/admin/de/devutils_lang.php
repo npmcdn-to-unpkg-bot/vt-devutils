@@ -44,5 +44,6 @@
 
 
 		'vtdu_logs'                       => 'Logs',
+        'vtdu_tplblocks'                  => 'Template Blocks',
 		'vtdu_scratchpad'                 => 'Scratchpad'
 	);

@@ -43,5 +43,6 @@
 		'VTDU_LOGS_SRVERRLOGEMPTY'        => 'error log empty. nothing to backup',
 
 		'vtdu_logs'                       => 'Logs',
+        'vtdu_tplblocks'                  => 'Template Blocks',
 		'vtdu_scratchpad'                 => 'Scratchpad'
 	);

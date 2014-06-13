@@ -1,5 +1,118 @@
 [{include file=$oViewConf->getModulePath("vt-devutils","views/admin/vt_devutils__header.tpl")}]
 
+
+[{if $aFiles}]
+    <div class="small-12 column">
+        <h2>files</h2>
+        [{foreach from=$aFiles key="module" item="aModuleFiles"}]
+            <div style="width: 40%; margin: 5%; padding: 0; display:inline-block; float:left; clear: none;">
+                <h3>[{$module}]</h3>
+                <table class="metadata">
+                    <thead>
+                    <tr>
+                        <th>class</th>
+                        <th>file</th>
+                        <th><i class="fa fa-power-off fa-lg"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    [{foreach from=$aModuleFiles item="item"}]
+                        <tr>
+                            <td>[{$item->class}]</td>
+                            <td>[{$item->file}]</td>
+                            <td>[{if $item->valid}][{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_STATUS3"}][{else}][{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_NOTFOUND"}][{/if}]</td>
+                        </tr>
+                    [{/foreach}]
+
+                    </tbody>
+                </table>
+            </div>
+        [{/foreach}]
+
+    </div>
+[{/if}]
+
+
+<ul class="small-block-grid-1 large-block-grid-2">
+    [{if $aExtensions}]
+        <li>
+            <h3>extensions</h3>
+            <table class="metadata">
+                <thead>
+                <tr>
+                    <th>class</th>
+                    <th>file</th>
+                    <th><i class="fa fa-power-off fa-lg"></i></th>
+                </tr>
+                </thead>
+                <tbody>
+                [{foreach from=$aExtensions item="item"}]
+                    <tr>
+                        <td>[{$item->class}]</td>
+                        <td>[{$item->file}][{if !$item->valid}]&nbsp;&nbsp;[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_NOTFOUND"}][{/if}]</td>
+                        <td>[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_STATUS"|cat:$item->status }]</td>
+                    </tr>
+                [{/foreach}]
+                </tbody>
+            </table>
+        </li>
+    [{/if}]
+    <li>
+
+    </li>
+    [{if $aTemplates}]
+        <li>
+            <h3>templates</h3>
+            <table class="metadata">
+                <thead>
+                <tr>
+                    <th>template</th>
+                    <th>file</th>
+                    <th><i class="fa fa-power-off fa-lg"></i></th>
+                </tr>
+                </thead>
+                <tbody>
+                [{foreach from=$aTemplates item="item"}]
+                    <tr>
+                        <td>[{$item->title}]</td>
+                        <td>[{$item->file}][{if !$item->valid}]&nbsp;&nbsp;[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_NOTFOUND"}][{/if}]</td>
+                        <td>[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_STATUS"|cat:$item->status }]</td>
+                    </tr>
+                [{/foreach}]
+                </tbody>
+            </table>
+        </li>
+    [{/if}]
+    [{if $aBlocks}]
+        <li>
+            <h3>blocks</h3>
+            <table class="metadata">
+                <thead>
+                <tr>
+                    <th>template</th>
+                    <th>block & file</th>
+                    <th><i class="fa fa-power-off fa-lg"></i></th>
+                </tr>
+                </thead>
+                <tbody>
+                [{foreach from=$aBlocks item="item"}]
+                    <tr>
+                        <td>[{$item->template}]</td>
+                        <td>
+                            [{$item->block}]<br/>
+                            [{$item->file}][{if !$item->valid}]&nbsp;&nbsp;[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_NOTFOUND"}][{/if}]
+                        </td>
+                        <td>[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_STATUS"|cat:$item->status }]</td>
+                    </tr>
+                [{/foreach}]
+                </tbody>
+            </table>
+        </li>
+    [{/if}]
+</ul>
+</div>
+
+
 <div class="row">
     <ul class="tabs" data-tab>
         <li class="tab-title active"><a href="#extends">extendeds</a></li>
@@ -14,7 +127,6 @@
             <pre>
             [{$oView->getModuleEvents()|var_dump}]
                 <hr/>
-                [{$oView->getModuleFiles()|var_dump}]
                 <hr/>
                 [{$oView->getModuleTemplates()|var_dump}]
                 </pre>

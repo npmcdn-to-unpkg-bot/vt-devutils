@@ -1,9 +1,7 @@
 [{include file=$oViewConf->getModulePath("vt-devutils","views/admin/vt_devutils__header.tpl")}]
-<br/>
+<div style="padding: 25px;">
 
-    <div class="row">
-
-        <div id="codeinput" style="min-height: 200px; border: 1px solid #cfcfcf;">[{$codeinput|default:""}]</div>
+        <div id="codeinput" style="min-height: 300px; border: 1px solid #cfcfcf;">[{$codeinput|default:""}]</div>
         <script type="text/javascript" src="//cdn.jsdelivr.net/ace/1.1.3/min/ace.js"></script>
         <script type="text/javascript">
             var f = top.basefrm.document;
@@ -16,7 +14,6 @@
                 f.getElementById("console").submit();
             }
         </script>
-    </div>
 
     <div class="row">
         <div class="small-12 medium-6 columns">
@@ -25,19 +22,19 @@
                 <input type="hidden" name="fnc" value="doTest"/>
                 <input type="hidden" name="codeinput" value="" id="target"/>
             </form>
-            <button type="submit" class="button expand" onclick="Javascript:eval();">go</button>
+            <button type="submit" class="button expand" onclick="Javascript:eval();">EVALUATE</button>
         </div>
         <div class="small-12 medium-6 columns text-center">
-            <strong style="line-height: 24px;color: red">all the php code will be evaluated!<br/>bad code may brake your shop or server!</strong>
+            <strong style="line-height: 20px; color: red"><br/>all the php code will be evaluated!<br/>bad code may brake your shop or server!</strong>
         </div>
     </div>
-    <div class="row">
+
         [{if $codeerror}]
             <pre>[{$codeerror|var_dump}]</pre>
         [{else}]
-            <textarea class="form-control" style="min-height: 200px;">[{$codeoutput|default:""}]</textarea>
+            <textarea class="form-control" style="min-height: [{if $codeoutput}]3[{else}]2[{/if}]00px;">[{$codeoutput|default:""}]</textarea>
         [{/if}]
-    </div>
+
 </div>
 
 [{include file=$oViewConf->getModulePath("vt-devutils","views/admin/vt_devutils__footer.tpl")}]

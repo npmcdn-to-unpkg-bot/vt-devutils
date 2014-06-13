@@ -1,8 +1,11 @@
 /* metadata */
+
+#magicgrid { list-style: none;}
+#magicgrid li > div {padding: 10px;}
+
 table.metadata {
     width: 100%;
 }
-
 .metadata .fa-thumbs-up {
     color: green !important;
 }

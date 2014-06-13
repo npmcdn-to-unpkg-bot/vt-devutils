@@ -2,26 +2,27 @@
 [{capture assign="header"}][{include file="header.tpl"}][{/capture}]
 [{capture assign="inception"}]
     <li class="sep">
-        <a href="[{$oViewConf->getSelfLink()}]&cl=navigation&fnc=clearLang&item=header.tpl" class="rc" title="[{oxmultilang ident='vtdu_clearlang'}]">
-            <b>lang cache</b>
+        <a href="[{$oViewConf->getSelfLink()}]&cl=navigation&fnc=clearLang&item=header.tpl" class="rc" title="[{oxmultilang ident='VT_DEVUTILS_CLEARLANG'}]">
+            <b>[{oxmultilang ident='VT_DEVUTILS_CLEARLANG'}]</b>
         </a>
     </li>
     <li class="sep">
-        <a href="[{$oViewConf->getSelfLink()}]&cl=navigation&fnc=clearTpl&item=header.tpl" class="rc" title="[{oxmultilang ident='vtdu_clearsmarty'}]">
-            <b>tpl cache</b>
+        <a href="[{$oViewConf->getSelfLink()}]&cl=navigation&fnc=clearTpl&item=header.tpl" class="rc" title="[{oxmultilang ident='VT_DEVUTILS_CLEARTPL'}]">
+            <b>[{oxmultilang ident='VT_DEVUTILS_CLEARTPL'}]</b>
         </a>
     </li>
     <li class="sep">
-        <a href="[{$oViewConf->getSelfLink()}]&cl=navigation&fnc=clearTmp&item=header.tpl" class="rc" title="[{oxmultilang ident='vtdu_cleartmp'}]">
-            <b>full cache</b>
+        <a href="[{$oViewConf->getSelfLink()}]&cl=navigation&fnc=clearTmp&item=header.tpl" class="rc" title="[{oxmultilang ident='VT_DEVUTILS_CLEARTMP'}]">
+            <b>[{oxmultilang ident='VT_DEVUTILS_CLEARTMP'}]</b>
         </a>
     </li>
+    [{*
     [{if $content}]
         <li class="sep">
-            <b>[{$content}]</b>
+            [{$content}]
         </li>
     [{/if}]
-[{*
+
 
         <div class="panel panel-default">
             <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">debug settings</a></h4></div>

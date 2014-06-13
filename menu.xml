@@ -2,9 +2,12 @@
 <OX>
 	<OXMENU id="NAVIGATION_ESHOPADMIN">
 		<MAINMENU id="mxextensions">
+            <SUBMENU id="devutils_moduledata" cl="devutils_moduledata" />
+			<SUBMENU id="devutils_console" cl="devutils_console" />
             <SUBMENU id="vtdu_logs" cl="vtdu_logs" />
-            <SUBMENU id="vtdu_tplblocks" cl="vtdu_tplblocks" />
-			<SUBMENU id="vtdu_scratchpad" cl="vtdu_scratchpad" />
+            <SUBMENU id="mxmodule" cl="module" list="module_list">
+                <TAB id="module_metadata" cl="module_metadata" />
+            </SUBMENU>
 		</MAINMENU>
 	</OXMENU>
 </OX>

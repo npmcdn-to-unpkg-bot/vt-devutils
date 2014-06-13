@@ -1,9 +1,9 @@
 <?php
 
-	class vtdu_scratchpad extends oxAdminView
+	class devutils_console extends oxAdminView
 	{
 
-		protected $_tpl = 'vtdu_scratchpad.tpl';
+		protected $_tpl = 'vt_devutils_console.tpl';
 
 		public function init()
 		{

@@ -18,6 +18,11 @@
 	class vtdu extends oxConfig
 	{
 
+        public function resetModuleData()
+        {
+            $sQuery = 'update oxconfig set oxvarvalue = "" where oxvarname LIKE "%module%"';
+        }
+
 		public function clearTmp()
 		{
 			$cfg = oxRegistry::get("oxConfig");

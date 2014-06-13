@@ -1,0 +1,72 @@
+/* metadata */
+table.metadata {
+    width: 100%;
+}
+
+.metadata .fa-thumbs-up {
+    color: green !important;
+}
+
+.metadata .fa-warning {
+    color: darkorange !important;
+}
+
+.metadata .fa-warning {
+    color: darkorange !important;
+}
+
+.metadata .fa-thumbs-down {
+    color: red !important;
+}
+
+/* debugsettings */
+.loading {
+    background: url(../spinner.gif) center center no-repeat transparent !important;
+}
+
+#debugsettings a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    padding: 5px 3px 3px 5px;
+    margin: 0 5px 5px 0;
+}
+
+#debugsettings a.on {
+    background-color: #85fa85;
+}
+
+/* bootstrap */
+.ui-tooltip {
+    background: #85fa85;
+}
+
+/* collapse stuff */
+#accordion {
+    position: absolute;
+    bottom: 0px;
+    margin: 0;
+    background: white;
+    max-height: 200px;
+}
+
+.panel-heading {
+    padding: 10px;
+}
+
+#collapseOne a img {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+/* logs */
+.panel-group pre {
+    margin: 15px 0 0 0;
+    background: none;
+    border: none;
+}
+
+.log {
+    margin-bottom: 20px;
+}

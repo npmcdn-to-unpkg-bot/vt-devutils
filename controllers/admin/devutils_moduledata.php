@@ -1,9 +1,9 @@
 <?php
 
-class vtdu_tplblocks extends oxAdminView
+class devutils_moduledata extends oxAdminView
 {
 
-    protected $_tpl = 'vtdu_tplblocks.tpl';
+    protected $_tpl = 'vt_devutils_moduledata.tpl';
 
     public function render()
     {
@@ -13,6 +13,21 @@ class vtdu_tplblocks extends oxAdminView
 
 
         return $this->_tpl;
+    }
+
+    public function getModuleEvents()
+    {
+        return oxRegistry::getConfig()->getConfigParam('aModuleEvents');
+    }
+
+    public function getModuleFiles()
+    {
+        return oxRegistry::getConfig()->getConfigParam('aModuleFiles');
+    }
+
+    public function getModuleTemplates()
+    {
+        return oxRegistry::getConfig()->getConfigParam('aModuleTemplates');
     }
 
     public function getTplBlocks()

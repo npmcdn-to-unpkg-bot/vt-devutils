@@ -1,6 +1,6 @@
 <?php
 
-class oxmodule_vtdu extends oxmodule_vtdu_parent {
+class devutilsoxmodule extends devutilsoxmodule_parent {
 
    public function addModuleSettings() {
       $this->_addModuleSettings($this->getInfo("settings"));

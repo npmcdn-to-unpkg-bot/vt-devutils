@@ -1,11 +1,11 @@
 <?php
 
-	class vtdu_events extends oxConfig
+	class devutilsevents extends oxSuperCfg
 	{
 
-		public static function activate()
+		public static function onActivate()
         {
-            $vtdu = oxNew("vtdu");
+            $vtdu = oxNew("devutils");
             $vtdu->clearTmp();
 			/*
 			$vtdu->resetModuleFiles("vt-devutils");

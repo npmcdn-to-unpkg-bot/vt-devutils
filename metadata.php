@@ -28,32 +28,31 @@
         'url'         => 'http://marat.ws',
         'extend'      => array(
             /* core + models */
-            'oxviewconfig' => 'vt-devutils/extend/oxviewconfig_vtdu',
-            'oxmodule'     => 'vt-devutils/extend/oxmodule_vtdu',
+            'oxviewconfig' => 'vt-devutils/core/devutilsoxviewconfig',
+            'oxmodule'     => 'vt-devutils/core/devutilsoxmodule',
             /* backend */
-            'module_main'  => 'vt-devutils/extend/module_main_vtdu',
-            'navigation'   => 'vt-devutils/extend/navigation_vtdu',
+            'module_main'  => 'vt-devutils/controllers/admin/devutilsmodule_main',
+            'navigation'   => 'vt-devutils/controllers/admin/devutilsnavigation',
             /* frontend */
-            'thankyou'     => 'vt-devutils/extend/thankyou_vtdu',
-            "peter" => "anna"
+            'thankyou'     => 'vt-devutils/controllers/devutilsthankyou',
         ),
         'files'       => array(
-            'vtdu_events'         => 'vt-devutils/files/vtdu_events.php', // module events
+            'devutilsevents'      => 'vt-devutils/core/devutilsevents.php', // module events
+            'devutils'            => 'vt-devutils/core/devutils.php', // devutils core
+            'vtdu_fe'             => 'vt-devutils/core/vtdu_fe.php', // frontend wrapper
+            'vtdu_be'             => 'vt-devutils/core/vtdu_be.php', // backend wrapper
+
             'module_metadata'     => 'vt-devutils/controllers/admin/module_metadata.php', // modules -> metadata tab
 
-            'devutils_moduledata' => 'vt-devutils/controllers/admin/devutils_moduledata.php', // template blocks controller
+            'devutils_moduledata' => 'vt-devutils/controllers/admin/devutils_moduledata.php', // extensions -> module data
             'devutils_console'    => 'vt-devutils/controllers/admin/devutils_console.php', // php console
-            'devutils_logs'       => 'vt-devutils/controllers/admin/devutils_logs.php',
-
-            'vtdu'                => 'vt-devutils/files/vtdu.php', // dev utils self
-            'vtdu_fe'             => 'vt-devutils/files/vtdu_fe.php', // frontend files
-            'vtdu_be'             => 'vt-devutils/files/vtdu_be.php', // backend files
+            'devutils_logs'       => 'vt-devutils/controllers/admin/devutils_logs.php', // error logs
         ),
         'events'      => array(
-            'onActivate' => 'vtdu_events::activate'
+            'onActivate' => 'devutilsevents::onActivate'
         ),
         'templates'   => array(
-            'header_vtdu.tpl'                 => 'vt-devutils/views/admin/header_vtdu.tpl',
+            'vt_devutils_admin_header.tpl'    => 'vt-devutils/views/admin/vt_devutils_admin_header.tpl',
             'vt_devutils_module_metadata.tpl' => 'vt-devutils/views/admin/vt_devutils_module_metadata.tpl',
             'vt_devutils_moduledata.tpl'      => 'vt-devutils/views/admin/vt_devutils_moduledata.tpl',
             'vt_devutils_logs.tpl'            => 'vt-devutils/views/admin/vt_devutis_logs.tpl',
@@ -63,7 +62,6 @@
             'vtdu_be.tpl'                     => 'vt-devutils/views/admin/vtdu_be.tpl',
         ),
         'blocks'      => array(
-            array( 'template' => 'headitem.tpl', 'block' => 'admin_headitem_inccss', 'file' => '/views/blocks/admin_headitem_inccss.tpl' ),
             //array('template' => 'bottomnaviitem.tpl', 	'block' => 'admin_bottomnaviitem', 	 'file' => '/blocks/admin_bottomnaviitem.tpl'),
             array( 'template' => 'bottomnaviitem.tpl', 'block' => 'admin_bottomnavicustom', 'file' => '/views/blocks/admin_bottomnavicustom.tpl' ),
             array( 'template' => 'layout/base.tpl', 'block' => 'base_js', 'file' => '/views/blocks/base_js.tpl' ),

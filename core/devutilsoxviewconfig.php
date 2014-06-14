@@ -1,6 +1,6 @@
 <?php
 
-	class oxviewconfig_vtdu extends oxviewconfig_vtdu_parent
+	class devutilsoxviewconfig extends devutilsoxviewconfig_parent
 	{
 
 		public function getConfig()

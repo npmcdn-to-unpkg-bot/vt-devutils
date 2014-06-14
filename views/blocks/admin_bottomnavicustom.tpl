@@ -2,14 +2,13 @@
 [{if $oViewConf->getActiveClassName() == "module_main" }]
 	<form id="devutils" name="devutils" action="[{ $oViewConf->getSelfLink() }]" method="post">
 		[{ $oViewConf->getHiddenSid() }]
-		<input type="hidden" name="oxid" value="[{$oModule->getInfo('id')}]">
-		<input type="hidden" name="cl" value="module_main">
-		<input type="hidden" name="fnc" value="">
-	</form>
-	<li><a href="#" onClick="Javascript:document.devutils.fnc.value='resetModuleExtends';document.devutils.submit();">reset module extends</a> |</li>
-	<li><a href="#" onClick="Javascript:document.devutils.fnc.value='resetModuleFiles';document.devutils.submit();">reset module files</a> |</li>
-	<li><a href="#" onClick="Javascript:document.devutils.fnc.value='resetModuleSettings';document.devutils.submit();">reset module settings</a> |</li>
-	<li><a href="#" onClick="Javascript:document.devutils.fnc.value='resetModuleTemplates';document.devutils.submit();">reset module templates</a> |</li>
-	<li><a href="#" onClick="Javascript:document.devutils.fnc.value='resetTemplateBlocks';document.devutils.submit();">reset template blocks</a></li>
+		<input type="hidden" name="oxid" value="[{ $oModule->getInfo('id') }]">
+		<input type="hidden" name="cl" value="[{ $oView->getClassName() }]">
+	    <li><button type="submit" name="fnc" style="padding: 0px 6px; margin-top: 0px;" value="resetModuleExtends">reset module extends</button></li>
+        <li><button type="submit" name="fnc" style="padding: 0px 6px; margin-top: 0px;" value="resetModuleFiles">reset module files</button></li>
+        <li><button type="submit" name="fnc" style="padding: 0px 6px; margin-top: 0px;" value="resetModuleSettings">reset module settings</button></li>
+        <li><button type="submit" name="fnc" style="padding: 0px 6px; margin-top: 0px;" value="resetModuleTemplates">reset module templates</button></li>
+        <li><button type="submit" name="fnc" style="padding: 0px 6px; margin-top: 0px;" value="resetTemplateBlocks">reset template blocks</button></li>
+    </form>
 [{/if}]
 [{if $message}]<script>console.log("[{$message}]");</script>[{/if}]

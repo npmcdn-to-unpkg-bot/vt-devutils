@@ -15,7 +15,7 @@
 	 * Author:     Marat Bedoev <oxid@marat.ws>
 	 */
 
-	class vtdu extends oxConfig
+	class devutils extends oxSuperCfg
 	{
 
         public function resetModuleData()

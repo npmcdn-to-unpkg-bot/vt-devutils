@@ -27,7 +27,7 @@
         'email'       => 'oxid@marat.ws',
         'url'         => 'http://marat.ws',
         'extend'      => array(
-            /* core + models */
+            /* core */
             'oxviewconfig' => 'vt-devutils/core/devutilsoxviewconfig',
             'oxmodule'     => 'vt-devutils/core/devutilsoxmodule',
             /* backend */
@@ -39,6 +39,7 @@
         'files'       => array(
             'devutilsevents'      => 'vt-devutils/core/devutilsevents.php', // module events
             'devutils'            => 'vt-devutils/core/devutils.php', // devutils core
+
             'vtdu_fe'             => 'vt-devutils/core/vtdu_fe.php', // frontend wrapper
             'vtdu_be'             => 'vt-devutils/core/vtdu_be.php', // backend wrapper
 
@@ -47,6 +48,7 @@
             'devutils_moduledata' => 'vt-devutils/controllers/admin/devutils_moduledata.php', // extensions -> module data
             'devutils_console'    => 'vt-devutils/controllers/admin/devutils_console.php', // php console
             'devutils_logs'       => 'vt-devutils/controllers/admin/devutils_logs.php', // error logs
+            'devutils_main'       => 'vt-devutils/controllers/admin/devutils_main.php', // devutils backend ui
         ),
         'events'      => array(
             'onActivate' => 'devutilsevents::onActivate'
@@ -57,9 +59,10 @@
             'vt_devutils_moduledata.tpl'      => 'vt-devutils/views/admin/vt_devutils_moduledata.tpl',
             'vt_devutils_logs.tpl'            => 'vt-devutils/views/admin/vt_devutis_logs.tpl',
             'vt_devutils_console.tpl'         => 'vt-devutils/views/admin/vt_devutils_console.tpl',
+            'vt_devutils_main.tpl'            => 'vt-devutils/views/admin/vt_devutils_main.tpl',
             'vtdu_ajax.tpl'                   => 'vt-devutils/views/vtdu_ajax.tpl',
             'vtdu_fe.tpl'                     => 'vt-devutils/views/vtdu_fe.tpl',
-            'vtdu_be.tpl'                     => 'vt-devutils/views/admin/vtdu_be.tpl',
+
         ),
         'blocks'      => array(
             //array('template' => 'bottomnaviitem.tpl', 	'block' => 'admin_bottomnaviitem', 	 'file' => '/blocks/admin_bottomnaviitem.tpl'),

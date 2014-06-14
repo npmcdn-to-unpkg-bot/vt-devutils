@@ -1,4 +1,4 @@
-[{include file=$oViewConf->getModulePath("vt-devutils","views/admin/_vtdu_header.tpl")}]
+[{include file=$oViewConf->getModulePath("vt-devutils","views/admin/vt_devutils__header.tpl")}]
 <div class="panel-group" id="accordion">
 
     <div class="panel panel-default">
@@ -66,4 +66,4 @@
     [{/capture}]
 </script>
 
-[{include file=$oViewConf->getModulePath("vt-devutils","views/admin/_vtdu_footer.tpl") scripts=$scripts}]
+[{include file=$oViewConf->getModulePath("vt-devutils","views/admin/vt_devutils__footer.tpl")}]

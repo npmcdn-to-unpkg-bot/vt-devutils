@@ -90,6 +90,7 @@
                 $aFiles = array();
                 foreach ( $aModuleFiles as $key => $value )
                 {
+                    $key = strtolower($key); // fix case sensitive problems
                     $iStatus = 3; // 3 - alles gut
                     if ( !$aActiveFiles[$oModule->getId()] ) $iStatus = 0; // 0 - überhaupt keine Einträge für dieses Modul vorhanden
                     elseif ( !$aActiveFiles[$oModule->getId()][$key] ) $iStatus = 1; // 1 - kein Eintrag für dieses Template vorhanden

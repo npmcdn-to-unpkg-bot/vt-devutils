@@ -1,6 +1,6 @@
 <?php
 
-	class vtdu_be extends oxAdminView
+	class devutils_main extends oxAdminView
 	{
 		public function render()
 		{
@@ -9,7 +9,7 @@
 			{
 				return "vtdu_ajax.tpl";
 			}
-			return "vtdu_be.tpl";
+			return "vt_devutils_main.tpl";
 		}
 
 		public function getDebugSettings()

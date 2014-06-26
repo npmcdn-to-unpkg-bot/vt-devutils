@@ -9,11 +9,16 @@
     <input type="hidden" name="updatenav" value="">
     <input type="hidden" name="editlanguage" value="[{ $editlanguage }]">
 </form>
+<form name="transfer" id="transfer" action="[{ $oViewConf->getSelfLink() }]" method="post">
+    [{ $oViewConf->getHiddenSid() }]
+    <input type="hidden" name="oxid" value="[{$oModule->getInfo('id')}]">
+    <input type="hidden" name="cl" value="module_config">
+    <input type="hidden" name="actshop" value="[{$oViewConf->getActiveShopId()}]">
 <ul id="magicgrid">
     [{if $aExtensions}]
         <li>
             <div>
-            <h3>extensions</h3>
+            <h3>extensions <button type="submit" name="fnc" value="resetModuleExtends"><i class="fa fa-refresh"></i></button></h3>
             <table class="metadata">
                 <thead>
                 <tr>
@@ -38,7 +43,7 @@
     [{if $aFiles}]
         <li>
             <div>
-            <h3>files</h3>
+            <h3>files <a href="#"><i class="fa fa-refresh"></i></a></h3>
             <table class="metadata">
                 <thead>
                 <tr>
@@ -63,7 +68,7 @@
     [{if $aTemplates}]
         <li>
             <div>
-            <h3>templates</h3>
+            <h3>templates <a href="#"><i class="fa fa-refresh"></i></a></h3>
             <table class="metadata">
                 <thead>
                 <tr>
@@ -88,7 +93,7 @@
     [{if $aBlocks}]
         <li>
             <div>
-            <h3>blocks</h3>
+            <h3>blocks <a href="#"><i class="fa fa-refresh"></i></a></h3>
             <table class="metadata">
                 <thead>
                 <tr>
@@ -117,7 +122,7 @@
 
 [{if $aSettings}]
     <div class="small-10 small-offset-1 columns">
-            <h3>settings</h3>
+            <h3>settings <a href="#"><i class="fa fa-refresh"></i></a></h3>
             <table class="metadata">
                 <colgroup>
                     <col width="200"/>

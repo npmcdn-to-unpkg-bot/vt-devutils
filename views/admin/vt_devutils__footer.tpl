@@ -24,6 +24,8 @@
         }
     });
 
+    $(".fa-refresh").on("click",function() { $(this).addClass("fa-spin"); });
+
 </script>
 [{ oxscript }]
 </body>

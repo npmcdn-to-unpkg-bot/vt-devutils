@@ -143,10 +143,9 @@
 			$this->cleartmp();
 		}
 
-		public function resetModuleExtends($sModuleId = null)
+		public function resetModuleExtends($sModuleId)
 		{
 			$cfg = oxRegistry::getConfig();
-			$sModuleId = ($sModuleId === null) ? $this->getEditObjectId() : $sModuleId;
 
 			/** @var oxModule $oModule */
 			$oModule = oxNew('oxModule');

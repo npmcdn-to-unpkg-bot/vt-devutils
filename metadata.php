@@ -57,7 +57,7 @@
             'vt_devutils_admin_header.tpl'    => 'vt-devutils/views/admin/vt_devutils_admin_header.tpl',
             'vt_devutils_module_metadata.tpl' => 'vt-devutils/views/admin/vt_devutils_module_metadata.tpl',
             'vt_devutils_moduledata.tpl'      => 'vt-devutils/views/admin/vt_devutils_moduledata.tpl',
-            'vt_devutils_logs.tpl'            => 'vt-devutils/views/admin/vt_devutis_logs.tpl',
+            'vt_devutils_logs.tpl'            => 'vt-devutils/views/admin/vt_devutils_logs.tpl',
             'vt_devutils_console.tpl'         => 'vt-devutils/views/admin/vt_devutils_console.tpl',
             'vt_devutils_main.tpl'            => 'vt-devutils/views/admin/vt_devutils_main.tpl',
             'vtdu_ajax.tpl'                   => 'vt-devutils/views/vtdu_ajax.tpl',
@@ -66,7 +66,7 @@
         ),
         'blocks'      => array(
             //array('template' => 'bottomnaviitem.tpl', 	'block' => 'admin_bottomnaviitem', 	 'file' => '/blocks/admin_bottomnaviitem.tpl'),
-            array( 'template' => 'bottomnaviitem.tpl', 'block' => 'admin_bottomnavicustom', 'file' => '/views/blocks/admin_bottomnavicustom.tpl' ),
+            array( 'template' => 'bottomnaviitem.tpl', 'block' => 'admin_bottomnavicustom', 'file' => '/views/blocks/admin/admin_bottomnavicustom.tpl' ),
             array( 'template' => 'layout/base.tpl', 'block' => 'base_js', 'file' => '/views/blocks/base_js.tpl' ),
 
         ),

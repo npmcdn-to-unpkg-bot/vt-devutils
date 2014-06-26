@@ -20,6 +20,7 @@
             parent::render();
 
             $sModuleId = $this->getEditObjectId();
+            $this->addTplParam( "sModuleId", $sModuleId );
 
             /** @var oxModule $oModule */
             $oModule = oxNew( 'oxModule' );
@@ -45,6 +46,13 @@
             if ( !pathinfo( $sFile, PATHINFO_EXTENSION ) ) $sFile .= ".php";
 
             return is_readable( $sFile );
+        }
+
+        public function resetModuleExtends() {
+            $sModuleId = $this->getEditObjectId();
+            oxRegistry::get( "devutils" )->resetModuleExtends( $sModuleId );
+
+            oxRegistry::get("oxUtilsView")->addErrorToDisplay( "reset class extensions for $sModuleId" );
         }
 
         public function checkExtensions( oxModule $oModule )

@@ -17,7 +17,7 @@ table.metadata {
 .metadata .fa-warning {
     color: darkorange !important;
 }
-
+.metadata .fa-frown-o,
 .metadata .fa-thumbs-down {
     color: red !important;
 }

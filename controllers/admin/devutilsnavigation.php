@@ -19,34 +19,34 @@ class devutilsnavigation extends devutilsnavigation_parent
     {
         $ret = parent::render();
 
-        //if (oxRegistry::getConfig()->getRequestParameter("ajax")) return "vtdu_ajax.tpl";
+        //if (oxRegistry::getConfig()->getRequestParameter("ajax")) return "devutils_ajax.tpl";
         return ($ret == "header.tpl") ? "vt_devutils_admin_header.tpl" : $ret;
     }
 
     public function getDebugSettings()
     {
-        $vtdu = oxRegistry::get("vtdu");
+        $devutils = oxRegistry::get("devutils");
 
-        return $vtdu->getDebugSettings();
+        return $devutils->getDebugSettings();
     }
 
 
     public function clearTmp()
     {
-        $vtdu = oxRegistry::get("vtdu");
-        $this->addTplParam("content", $vtdu->clearTmp());
+        $devutils = oxRegistry::get("devutils");
+        $this->addTplParam("content", $devutils->clearTmp());
     }
 
     public function clearTpl()
     {
-        $vtdu = oxRegistry::get("vtdu");
-        $this->addTplParam("content", $vtdu->clearTpl());
+        $devutils = oxRegistry::get("devutils");
+        $this->addTplParam("content", $devutils->clearTpl());
     }
 
     public function clearPhp()
     {
-        $vtdu = oxRegistry::get("vtdu");
-        $this->addTplParam("content", $vtdu->clearPhp());
+        $devutils = oxRegistry::get("devutils");
+        $this->addTplParam("content", $devutils->clearPhp());
     }
 
     public function clearLang()
@@ -58,9 +58,9 @@ class devutilsnavigation extends devutilsnavigation_parent
     public function toggleDebugSetting()
     {
         $cfg      = oxRegistry::getConfig();
-        $vtdu     = oxRegistry::get("vtdu");
+        $devutils     = oxRegistry::get("devutils");
         $sVarName = $cfg->getRequestParameter("setting");
-        $this->addTplParam("content", $vtdu->toggleDebugSetting($sVarName));
+        $this->addTplParam("content", $devutils->toggleDebugSetting($sVarName));
     }
 
     public function setDebugLvl()

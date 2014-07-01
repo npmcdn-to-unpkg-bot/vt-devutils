@@ -1,4 +1,5 @@
 [{$smarty.block.parent}]
+[{*
 <script>
 	[{if $oViewConf->getVTdebugSetting("bShowCl")}]
 		console.log("class: [{$oView->getClassName()}]");
@@ -43,6 +44,7 @@
 </style>
 <div id="vtduframe">
 	<iframe src="[{ $oViewConf->getSelfLink()|replace:'&amp;':'&'|oxaddparams:'cl=vtdu_fe'}]"></iframe>
-	[{* <img id="vtduicon" src="[{$oViewConf->getModuleUrl("vt-devutils","out/icons/vtduicon.png")}]"/> *}]
+
 </div>
 [{/if}]
+*}]

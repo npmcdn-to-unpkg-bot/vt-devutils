@@ -1,61 +1,65 @@
 [{include file=$oViewConf->getModulePath("vt-devutils","views/admin/vt_devutils__header.tpl")}]
-<div class="container">
-    <div class="row log">
-        <h1 class="">exception log
-            [{if $exLog}]
-                <small><a href="[{ $oViewConf->getSelfLink()|oxaddparams:" cl=vtdu_logs&fnc=restartExceptionLog" }]" title="rename log file so the shop will start new one">restart log</a></small>
-            [{/if}]
-        </h1>
-        [{if $exLogMsg}]<p class="text-[{$exLogMsg->type}]">[{$exLogMsg->text}]</p>[{/if}]
+<ul class="column small-block-grid-1 [{if $errLog}]large-block-grid-2[{/if}]">
+    <li class="log">
+        <div class="icon-bar five-up">
+            <h2 class="icon-bar-title">shop exceptions</h2>
+            <a href="[{ $oViewConf->getSelfFncLink("clearExceptionLog")}]"   class="item" title="clear exception log">
+                <i class="fa fa-trash-o"></i>
+                <label>clear log</label>
+            </a>
+            <a href="[{ $oViewConf->getSelfFncLink("restartExceptionLog")}]" class="item">
+                <i class="fa fa-scissors"></i>
+                <label>backup & restart</label>
+            </a>
+        </div>
         [{if $exLog}]
-            <div class="panel-group" id="exceptionlog">
+            <dl class="accordion" id="exceptionlog" data-accordion>
                 [{foreach from=$exLog item=ex name=exlog}]
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#exceptionlog" href="#exception[{$smarty.foreach.exlog.iteration}]">
-                                    [{$ex->header}]
-                                </a>
-                            </h4>
+                    <dd class="accordion-navigation">
+                        <a href="#exception[{$smarty.foreach.exlog.iteration}]">[{$ex->header}]</a>
+                        <div id="exception[{$smarty.foreach.exlog.iteration}]" class="content active">
+                            <pre>[{$ex->text}]</pre>
                         </div>
-                        <div id="exception[{$smarty.foreach.exlog.iteration}]" class="panel-collapse collapse [{if $smarty.foreach.exlog.last}]in[{/if}]">
-                            <div class="panel-body">
-                                <pre class="pre-scrollable">[{$ex->text}]</pre>
-                            </div>
-                        </div>
-                    </div>
+                    </dd>
                 [{/foreach}]
-            </div>
+            </dl>
         [{/if}]
-    </div>
+    </li>
 
     [{if $errLog}]
-        <div class="row log">
-            <h1 class="">webserver error log
-                [{if $errLog}]
-                    <small><a href="[{ $oViewConf->getSelfLink()|oxaddparams:" cl=vtdu_logs&fnc=restartErrorLog" }]" title="rename log file so the server will start new one">restart log</a></small>
-                [{/if}]
-            </h1>
-            [{if $errLogMsg}]<p class="text-[{$errLogMsg->type}]">[{$errLogMsg->text}]</p>[{/if}]
+        <li class="log">
+            <div class="icon-bar five-up">
+                <h2 class="icon-bar-title">webserver errors</h2>
+                <a href="[{ $oViewConf->getSelfFncLink("clearExceptionLog")}]"   class="item" title="clear exception log">
+                    <i class="fa fa-trash-o"></i>
+                    <label>clear log</label>
+                </a>
+                <a href="[{ $oViewConf->getSelfFncLink("restartExceptionLog")}]" class="item">
+                    <i class="fa fa-scissors"></i>
+                    <label>backup & restart</label>
+                </a>
+            </div>
             [{if $errLog}]
-                <table class="table table-bordered table-striped table-condensed">
+                <table>
+                    <tbody>
                     [{foreach from=$errLog item=log}]
-                        <tr style="margin-top: 5px;">
-                            <th>[{$log->date}]</th>
-                            <th>[{$log->type}]</th>
-                            <th>[{$log->client}]</th>
-                        </tr>
-                        <tr class="[{$log->type}]">
-                            <td colspan="3">[{$log->text}]</td>
-                        </tr>
+                    <tr>
+                        <th>[{$log->date}]</th>
+                        <th>[{$log->type}]</th>
+                        <th>[{$log->client}]</th>
+                    </tr>
+                    <tr class="[{$log->type}]">
+                        <td colspan="3">[{$log->text}]</td>
+                    </tr>
                     [{/foreach}]
+                    </tbody>
                 </table>
             [{/if}]
-        </div>
+        </li>
     [{/if}]
 
     [{if $SqlLog}]
-        <div class="col-xs-12 col-md-6 log">
+        <li class="log">
             <h2 class="text-center">MySQL log</h2>
             <table class="table table-striped">
                 …
@@ -64,12 +68,12 @@
         </div>
     [{/if}]
     [{if $MailLog}]
-        <div class="col-xs-12 col-md-6 log">
+        <li class="log">
             <h2>mail log</h2>
             <hr/>
             [{$MailLog}]
-        </div>
+        </li>
     [{/if}]
-</div>
+</ul>
 
 [{include file=$oViewConf->getModulePath("vt-devutils","views/admin/vt_devutils__footer.tpl")}]

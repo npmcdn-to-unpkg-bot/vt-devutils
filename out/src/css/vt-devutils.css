@@ -3,7 +3,7 @@
 #magicgrid { list-style: none;}
 #magicgrid li > div {padding: 10px;}
 
-table.metadata {
+table {
     width: 100%;
 }
 .metadata .fa-thumbs-up {
@@ -64,11 +64,11 @@ table.metadata {
 }
 
 /* logs */
-.panel-group pre {
-    margin: 15px 0 0 0;
-    background: none;
-    border: none;
-}
+.icon-bar-title { color: #fff; font-weight: bold; text-transform: uppercase; font-size: 2rem;}
+.five-up .icon-bar-title { width: 60%; }
+.icon-bar i { font-size: 1.25rem; }
+.icon-bar > * { padding: 1rem; }
+.accordion pre { font-size: 0.9rem; }
 
 .log {
     margin-bottom: 20px;

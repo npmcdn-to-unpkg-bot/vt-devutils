@@ -1,28 +1,28 @@
 <?php
 
-	class devutilsoxviewconfig extends devutilsoxviewconfig_parent
-	{
+class devutilsoxviewconfig extends devutilsoxviewconfig_parent
+{
 
-		public function getConfig()
-		{
-			return oxRegistry::getConfig();
-		}
+    public function getSelfFncLink($fnc = '')
+    {
+        return $this->getSelfLink().'cl='.$this->getActiveClassName().'&fnc='.$fnc;
+    }
 
-		public function getVTdebugSetting($sSetting = NULL)
-		{
-			switch ($sSetting)
-			{
-				case "bShowCl":
-					return oxRegistry::getConfig()->getConfigParam("bShowCl");
-					break;
-				case "bShowTpl":
-					return oxRegistry::getConfig()->getConfigParam("bShowTpl");
-					break;
-				case "bKeepBasket":
-					return oxRegistry::getConfig()->getConfigParam("bKeepBasket");
-					break;
-			}
+    public function getVTdebugSetting( $sSetting = null )
+    {
+        switch ($sSetting)
+        {
+            case "bShowCl":
+                return oxRegistry::getConfig()->getConfigParam( "bShowCl" );
+                break;
+            case "bShowTpl":
+                return oxRegistry::getConfig()->getConfigParam( "bShowTpl" );
+                break;
+            case "bKeepBasket":
+                return oxRegistry::getConfig()->getConfigParam( "bKeepBasket" );
+                break;
+        }
 
-			return false;
-		}
-	}
+        return false;
+    }
+}

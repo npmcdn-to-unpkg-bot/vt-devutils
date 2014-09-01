@@ -73,23 +73,24 @@ class devutils_logs extends oxAdminDetails
             $aData = explode("---------------------------------------------", $sData);
             $aData = array_slice($aData, -($iExLog + 1));
             array_pop($aData); // cut last empty array element
-            array_walk($aData, array($this, '_prepareExLog'));
+            foreach($aData as $key => $value)
+            {
+                $aEx = explode("Stack Trace:", trim($value));
+                $aData[$key] = (object)array(
+                    "header" => str_replace("[0]:", "<br/><b>", $aEx[0]) . "</b>",
+                    "text" => htmlentities(str_replace($cfg->getConfigParam("sShopDir"),"",trim($aEx[1])))
+                );
+            }
 
             return $aData;
         }
 
-        $this->addTplParam("exLogMsg", (object)array("type" => "success", "text" => "no exceptions, good job sir!"));
-
-        return false;
+        return array( (object) array("header" => "no exceptions, good job sir!"));
     }
 
-    private function _prepareExLog(&$item, $key)
+    public function clearExceptionLog()
     {
-        $aEx = explode("Stack Trace:", trim($item));
-        $item = (object)array(
-            "header" => str_replace("[0]:", "<br/><small>", $aEx[0]) . "</small>",
-            "text" => htmlentities(trim($aEx[1]))
-        );
+        file_put_contents($this->_sExLog, '');
     }
 
     public function restartExceptionLog()
@@ -98,9 +99,7 @@ class devutils_logs extends oxAdminDetails
         $newname = substr($oldname, 0, -4) . "_" . date("Y-m-d") . substr($oldname, -4);
 
         file_put_contents(str_replace($oldname, $newname, $this->_sExLog), file_get_contents($this->_sExLog), FILE_APPEND); // backup actual content
-        file_put_contents($this->_sExLog, ''); // reset log file
-
-        $this->addTplParam("exLogMsg", (object)array("type" => "success", "text" => "exception log restarted, old logs were moved into $newname"));
+        $this->clearExceptionLog();
     }
 
 

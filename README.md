@@ -11,7 +11,7 @@ copy the content of the "**copy_this**" folder into the shop root directory
 
 ### if you have access to the shell and a git client
 navigate into the modules/ directory and:
-<pre>git clone -b module git://github.com/vanilla-thunder/vt-devutils.git</pre>
+<pre>git clone -b module https://github.com/vanilla-thunder/vt-devutils.git</pre>
 
 
 ##LICENSE

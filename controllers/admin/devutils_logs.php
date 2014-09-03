@@ -82,7 +82,7 @@ class devutils_logs extends oxAdminDetails
                 );
             }
 
-            return $aData;
+            return array_reverse($aData);
         }
 
         return array( (object) array("header" => "no exceptions, good job sir!"));
@@ -119,7 +119,7 @@ class devutils_logs extends oxAdminDetails
         $aData = array_slice($aData, -$iSrvErrLog);
         array_walk($aData, array($this, '_prepareErrLog'));
 
-        return $aData;
+        return array_reverse($aData);
     }
 
     private function _prepareErrLog(&$item, $key)
@@ -140,18 +140,30 @@ class devutils_logs extends oxAdminDetails
         $item = (object)$aEx;
     }
 
+    public function isErrorLogWritable()
+    {
+        return ($this->_sErrLog && file_exists($this->_sErrLog) && is_writable($this->_sErrLog)) ? true : false;
+    }
+
+    public function clearErrorLog()
+    {
+        if( $this->isErrorLogWritable() ) file_put_contents($this->_sErrLog, '');
+    }
+
     public function restartErrorLog()
     {
-        if (!$this->_sErrLog) return false;
-        if (is_writable($this->_sErrLog)) {
+        if ($this->_sErrLog && $this->isErrorLogWritable() )
+        {
             file_put_contents($this->_sErrLog . "_" . date("Y-m-d"), file($this->_sErrLog), FILE_APPEND); // backup actual log
-            file_put_contents($this->_sErrLog, ''); // reset log file
+            $this->clearErrorLog();
             $this->addTplParam("errLogMsg", (object)array(
                 "type" => "success",
                 "text" => "error log restarted, old logs were moved into " . basename($this->_sErrLog) . "_" . date("Y-m-d")
             ));
         }
-
-        $this->addTplParam("errLogMsg", (object)array("type" => "warning", "text" => "log restart failed, file is nor writable!"));
+        else
+        {
+            $this->addTplParam("errLogMsg", (object)array("type" => "warning", "text" => "log restart failed, file is nor writable!"));
+        }
     }
 }

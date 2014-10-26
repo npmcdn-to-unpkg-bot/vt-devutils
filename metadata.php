@@ -21,7 +21,7 @@
         'title'       => '<strong style="color:#c700bb;border: 1px solid #c700bb;padding: 0 2px;background:white;">VT</strong> Dev Utils',
         'description' => 'some helpful functions for OXID developing',
         'thumbnail'   => 'oxid-vt.jpg',
-        'version'     => '3.0 from 2014-07-15 / newest version: <img src="https://raw.github.com/vanilla-thunder/vt-devutils/module/version.jpg" style="float:right;"/><br/><a style="display: inline-block; padding: 1px 15px; background: #f0f0f0; border: 1px solid gray" href="https://github.com/vanilla-thunder/vt-devutils/" target="_blank">info</a> <a style="display: inline-block; padding: 1px 15px; background: #f0f0f0; border: 1px solid gray" href="https://github.com/vanilla-thunder/vt-devutils/archive/master.zip">download</a>',
+        'version'     => '3.0 from 2014-10-30 / newest version: <img src="https://raw.github.com/vanilla-thunder/vt-devutils/module/version.jpg" style="float:right;"/><br/><a style="display: inline-block; padding: 1px 15px; background: #f0f0f0; border: 1px solid gray" href="https://github.com/vanilla-thunder/vt-devutils/" target="_blank">info</a> <a style="display: inline-block; padding: 1px 15px; background: #f0f0f0; border: 1px solid gray" href="https://github.com/vanilla-thunder/vt-devutils/archive/master.zip">download</a>',
         'author'      => 'Marat Bedoev',
         'email'       => 'oxid@marat.ws',
         'url'         => 'http://vanilla-thunder.github.io',
@@ -36,35 +36,26 @@
             'thankyou'     => 'vt-devutils/controllers/devutilsthankyou',
         ),
         'files'       => array(
-            'devutilsevents'      => 'vt-devutils/core/devutilsevents.php',
-            // module events
-            'devutils'            => 'vt-devutils/core/devutils.php',
-            // devutils core
+            'devutils'            => 'vt-devutils/core/devutils.php', // devutils core
 
-            'vtdu_fe'             => 'vt-devutils/core/vtdu_fe.php',
-            // frontend wrapper
-            'vtdu_be'             => 'vt-devutils/core/vtdu_be.php',
-            // backend wrapper
+            'vtdu_fe'             => 'vt-devutils/core/vtdu_fe.php', // frontend wrapper
+            'vtdu_be'             => 'vt-devutils/core/vtdu_be.php', // backend wrapper
 
-            'module_metadata'     => 'vt-devutils/controllers/admin/module_metadata.php',
-            // modules -> metadata tab
-
-            'devutils_moduledata' => 'vt-devutils/controllers/admin/devutils_moduledata.php',
-            // extensions -> module data
-            'devutils_console'    => 'vt-devutils/controllers/admin/devutils_console.php',
-            // php console
-            'devutils_logs'       => 'vt-devutils/controllers/admin/devutils_logs.php',
-            // error logs
-            'devutils_main'       => 'vt-devutils/controllers/admin/devutils_main.php',
-            // devutils backend ui
+            'module_metadata'     => 'vt-devutils/controllers/admin/module_metadata.php', // modules -> metadata tab
+            'devutils_moduledata' => 'vt-devutils/controllers/admin/devutils_moduledata.php', // extensions -> module data
+            'devutils_tplblocks' =>  'vt-devutils/controllers/admin/devutils_tplblocks.php', // extensions -> template blocks
+            'devutils_console'    => 'vt-devutils/controllers/admin/devutils_console.php', // php console
+            'devutils_logs'       => 'vt-devutils/controllers/admin/devutils_logs.php',  // error logs
+            'devutils_main'       => 'vt-devutils/controllers/admin/devutils_main.php', // devutils backend ui
         ),
         'events'      => array(
-            'onActivate' => 'devutilsevents::onActivate'
+            'onActivate' => 'devutils::onActivate'
         ),
         'templates'   => array(
             'vt_devutils_admin_header.tpl'    => 'vt-devutils/views/admin/vt_devutils_admin_header.tpl',
             'vt_devutils_module_metadata.tpl' => 'vt-devutils/views/admin/vt_devutils_module_metadata.tpl',
             'vt_devutils_moduledata.tpl'      => 'vt-devutils/views/admin/vt_devutils_moduledata.tpl',
+            'vt_devutils_tplblocks.tpl'       => 'vt-devutils/views/admin/vt_devutils_tplblocks.tpl',
             'vt_devutils_logs.tpl'            => 'vt-devutils/views/admin/vt_devutils_logs.tpl',
             'vt_devutils_console.tpl'         => 'vt-devutils/views/admin/vt_devutils_console.tpl',
             'vt_devutils_main.tpl'            => 'vt-devutils/views/admin/vt_devutils_main.tpl',

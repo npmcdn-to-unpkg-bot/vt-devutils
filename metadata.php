@@ -31,7 +31,7 @@
             'navigation'   => 'vt-devutils/controllers/admin/devutilsnavigation',
             /* core */
             'oxviewconfig' => 'vt-devutils/core/devutilsoxviewconfig',
-            'oxmodule'     => 'vt-devutils/core/devutilsoxmodule',
+            'oxmodulexx'     => 'vt-devutils/core/devutilsoxmodule',
             /* frontend */
             'thankyou'     => 'vt-devutils/controllers/devutilsthankyou',
         ),

@@ -28,10 +28,10 @@
             {
                 $this->addTplParam( "oModule", $oModule );
                 $this->addTplParam( "aExtensions", $this->checkExtensions( $oModule ) ); // extensions
-                $this->addTplParam( "aFiles", $this->checkFiles( $oModule ) ); // files
-                $this->addTplParam( "aTemplates", $this->checkTemplates( $oModule ) ); // templates
-                $this->addTplParam( "aBlocks", $this->checkBlocks( $oModule ) ); // templates
-                $this->addTplParam( "aSettings", $this->checkSettings( $oModule ) ); // settings
+                //$this->addTplParam( "aFiles", $this->checkFiles( $oModule ) ); // files
+                //$this->addTplParam( "aTemplates", $this->checkTemplates( $oModule ) ); // templates
+                //$this->addTplParam( "aBlocks", $this->checkBlocks( $oModule ) ); // templates
+                //$this->addTplParam( "aSettings", $this->checkSettings( $oModule ) ); // settings
             }
             else
             {
@@ -48,19 +48,13 @@
             return is_readable( $sFile );
         }
 
-        public function resetModuleExtends() {
-            $sModuleId = $this->getEditObjectId();
-            oxRegistry::get( "devutils" )->resetModuleExtends( $sModuleId );
-
-            oxRegistry::get("oxUtilsView")->addErrorToDisplay( "reset class extensions for $sModuleId" );
-        }
 
         public function checkExtensions( oxModule $oModule )
         {
             /** @var oxConfig $cfg */
             $cfg = oxRegistry::getConfig();
 
-            $aActiveModules    = $cfg->getAllModules();
+            $aActiveModules    = $cfg->getModulesWithExtendedClass();
             $aModuleExtensions = $oModule->getExtensions();
             $aExtensions       = false;
 
@@ -84,6 +78,14 @@
 
             return $aExtensions;
         }
+        public function resetModuleExtends() {
+            $sModuleId = $this->getEditObjectId();
+            oxRegistry::get( "devutils" )->resetModuleExtends( $sModuleId );
+
+            oxRegistry::get("oxUtilsView")->addErrorToDisplay( "reset class extensions for $sModuleId" );
+        }
+
+
 
         public function checkFiles( oxModule $oModule )
         {

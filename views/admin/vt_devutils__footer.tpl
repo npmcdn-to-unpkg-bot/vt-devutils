@@ -1,6 +1,6 @@
-<script src="[{$oViewConf->getModuleUrl("vt-devutils","out/src/js/jquery-2.1.1.min.js")}]?v=[{$smarty.now}]"></script>
+<script src="[{$oViewConf->getModuleUrl("vt-devutils","out/src/foundation/js/vendor/jquery.js")}]"></script>
 <script src="//cdn.jsdelivr.net/angular.all/1.3.0-beta.13/angular-all.min.js"></script>
-<script src="[{$oViewConf->getModuleUrl("vt-devutils","out/src/js/foundation.min.js")}]?v=[{$smarty.now}]"></script>
+<script src="[{$oViewConf->getModuleUrl("vt-devutils","out/src/foundation/js/foundation.min.js")}]?v=[{$smarty.now}]"></script>
 <script src="[{$oViewConf->getModuleUrl("vt-devutils","out/src/js/jquery.wookmark.min.js")}]?v=[{$smarty.now}]"></script>
 <script type="text/javascript">
     $(document).foundation();

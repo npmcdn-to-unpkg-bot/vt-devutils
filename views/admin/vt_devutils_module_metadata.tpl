@@ -14,29 +14,30 @@
     <input type="hidden" name="oxid" value="[{$oModule->getInfo('id')}]">
     <input type="hidden" name="cl" value="module_config">
     <input type="hidden" name="actshop" value="[{$oViewConf->getActiveShopId()}]">
-<ul id="magicgrid">
+
+<ul id="magicgrid" class="no-bullet">
     [{if $aExtensions}]
         <li>
-            <div>
-            <h3>extensions <button type="submit" name="fnc" value="resetModuleExtends"><i class="fa fa-refresh"></i></button></h3>
-            <table class="metadata">
-                <thead>
-                <tr>
-                    <th>class</th>
-                    <th>file</th>
-                    <th><i class="fa fa-power-off fa-lg"></i></th>
-                </tr>
-                </thead>
-                <tbody>
-                [{foreach from=$aExtensions item="item"}]
+            <div class="panel callout radius">
+                <h4>extensions <a href="[{$oViewConf->getSelfFncLink('resetModuleExtends')}]"><i class="fa fa-refresh"></i></a></h4>
+                <table class="metadata">
+                    <thead>
                     <tr>
-                        <td>[{$item->class}]</td>
-                        <td>[{$item->file}][{if !$item->valid}]&nbsp;&nbsp;[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_NOTFOUND"}][{/if}]</td>
-                        <td>[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_STATUS"|cat:$item->status }]</td>
+                        <th>class</th>
+                        <th>file</th>
+                        <th><i class="fa fa-power-off fa-lg"></i></th>
                     </tr>
-                [{/foreach}]
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    [{foreach from=$aExtensions item="item"}]
+                        <tr>
+                            <td>[{$item->class}]</td>
+                            <td>[{$item->file}][{if !$item->valid}]&nbsp;&nbsp;[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_NOTFOUND"}][{/if}]</td>
+                            <td>[{oxmultilang ident="VT_DEVUTILS_MODULE_METADATA_STATUS"|cat:$item->status }]</td>
+                        </tr>
+                    [{/foreach}]
+                    </tbody>
+                </table>
             </div>
         </li>
     [{/if}]

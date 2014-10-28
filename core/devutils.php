@@ -15,7 +15,7 @@
 	 * Author:     Marat Bedoev <oxid@marat.ws>
 	 */
 
-	class devutils extends oxSuperCfg
+	class devutils extends oxModuleInstaller
 	{
 
         public function resetModuleData()
@@ -145,34 +145,16 @@
 
 		public function resetModuleExtends($sModuleId)
 		{
-			$cfg = oxRegistry::getConfig();
-
 			/** @var oxModule $oModule */
 			$oModule = oxNew('oxModule');
-			$oModule->load($sModuleId);
-			$aAddModules = $oModule->getInfo("extend");
-			$sModulePath = $oModule->getModulePath();
 
-			$aModules = $oModule->getAllModules();
+            if (!$oModule->load($sModuleId))
+            {
+                oxRegistry::get("oxUtilsView")->addErrorToDisplay(new oxException('EXCEPTION_MODULE_NOT_LOADED'));
+                return;
+            }
 
-			// clearing modules array
-			foreach ($aModules as $sClass => $aExtends) {
-				foreach ($aExtends as $key => $sExtend) {
-					if (strpos($sExtend, $sModulePath) === 0)
-						unset($aModules[$sClass][$key]);
-
-				}
-				if (empty($aModules[$sClass]))
-					unset($aModules[$sClass]);
-			}
-
-			// merging modules array with actual data from metadata.php
-			$aModules = $oModule->mergeModuleArrays($aModules, $aAddModules);
-			$aModules = $oModule->buildModuleChains($aModules);
-
-			// saving conf vars
-			$cfg->setConfigParam('aModules', $aModules);
-			$cfg->saveShopConfVar('aarr', 'aModules', $aModules);
+            $this->_addExtensions($oModule);
 		}
 
 		public function resetModuleFiles($sModuleId = null)

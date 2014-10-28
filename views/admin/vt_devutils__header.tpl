@@ -5,10 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vt Dev Utils 3.0</title>
-    <link rel="stylesheet" type="text/css" href="[{$oViewConf->getModuleUrl("vt-devutils","out/src/css/normalize.css")}]?v=[{$smarty.now}]">
+    <link rel="stylesheet" type="text/css" href="[{$oViewConf->getModuleUrl("vt-devutils","out/src/css/vt-devutils.css")}]?v=[{$smarty.now}]"/>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+
+    [{* local
     <link rel="stylesheet" type="text/css" href="[{$oViewConf->getModuleUrl("vt-devutils","out/src/css/foundation.min.css")}]?v=[{$smarty.now}]"/>
     <link rel="stylesheet" type="text/css" href="[{$oViewConf->getModuleUrl("vt-devutils","out/src/css/font-awesome.min.css")}]?v=[{$smarty.now}]"/>
-    <link rel="stylesheet" type="text/css" href="[{$oViewConf->getModuleUrl("vt-devutils","out/src/css/vt-devutils.css")}]?v=[{$smarty.now}]"/>
-    <script type="text/javascript" src="[{$oViewConf->getModuleUrl("vt-devutils","out/src/js/modernizr.js")}]?v=[{$smarty.now}]"></script>
+    *}]
+
+    <script type="text/javascript" src="[{$oViewConf->getModuleUrl("vt-devutils","out/src/foundation/js/vendor/modernizr.js")}]?v=[{$smarty.now}]"></script>
 </head>
 <body>

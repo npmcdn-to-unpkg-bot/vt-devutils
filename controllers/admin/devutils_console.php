@@ -31,9 +31,9 @@ class devutils_console extends oxAdminView
 
     public function doTest()
     {
-        $cfg = oxRegistry::get("oxConfig");
-        $code = $cfg->getParameter("codeinput");
-        $this->_aViewData["codeinput"] = $code;
+        $cfg = oxRegistry::getConfig();
+        $code = $cfg->getRequestParameter("codeinput");
+        $this->addTplParam("codeinput", $code);
 
         $me = $user = oxRegistry::getConfig()->getUser();
         $session = $user->getSession();
@@ -49,7 +49,6 @@ class devutils_console extends oxAdminView
         ob_start();
         $this->addTplParam("codeerror", $fnc($code));
         $this->addTplParam("codeoutput",ob_get_clean());
-
 
     }
 

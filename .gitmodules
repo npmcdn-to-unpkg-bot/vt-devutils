@@ -1,0 +1,3 @@
+[submodule "out/src/foundation"]
+	path = out/src/foundation
+	url = https://github.com/zurb/bower-foundation.git
